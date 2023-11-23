@@ -9,6 +9,7 @@ export default class{
        async country_head(){
         await expect(this.page.locator("//h3[text()='Countries']")).toHaveText("Countries")    
        }
+       //li[text()='Sign Out']
        async search_country(searchcoun:string){
         await this.page.locator("//input[@placeholder='Search Country']").fill(searchcoun)
        }//div[text()='India']
@@ -100,28 +101,28 @@ export default class{
         await expect(this.page.locator("//div[text()='No rows']")).toBeVisible()    
        }
        async coun_name_req(){
-        await expect(this.page.locator("//span[text()='Country Name is Required']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Country Name is required']")).toBeVisible()
        }
        async coun_code_req(){
-        await expect(this.page.locator("//span[text()='Country code should have 2 Letters']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Country Code is required']")).toBeVisible()
        }
        async curr_code_req(){
-              await expect(this.page.locator("//span[text()='Minimum three letters are required']")).toBeVisible()
+       await expect(this.page.locator("//span[text()='Should have atleast three letters']")).toBeVisible()
        }
        async coun_region_req(){
-        await expect(this.page.locator("//span[text()='Region is Required']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Region is required']")).toBeVisible()
        }
        async coun_currency_req(){
-        await expect(this.page.locator("//span[text()='Currency is Required']")).toBeVisible()
-       }
+        await expect(this.page.locator("//span[text()='Currency is required']")).toBeVisible()
+       }      
        async coun_rate_req(){
-        await expect(this.page.locator("//span[text()='Rate is Required']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Exchange Rate is required']")).toBeVisible()
        }
        async coun_phonecode_req(){
-        await expect(this.page.locator("//span[text()='Phone Code is Required']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Phone Code is required']")).toBeVisible()
        }
        async coun_phoneformat_req(){
-        await expect(this.page.locator("//span[text()='Phone Number Format is Required']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Phone Number Format is required']")).toBeVisible()
        }
 
 
@@ -132,19 +133,19 @@ export default class{
         await expect(this.page.locator("//span[text()='Country Code should be letters']")).toBeVisible()
        }
        async coun_currency_req1(){
-        await expect(this.page.locator("//span[text()='Currency should be letters']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Only Alphabets are allowed']")).toBeVisible()
        }
        async coun_rate_req1(){
-        await expect(this.page.locator("//span[text()='Numbers only Accepted']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Only Numbers and Decimals are allowed']")).toBeVisible()
        }
        async coun_rate_req2(){
         await expect(this.page.locator("//label[text()='Exchange Rate']/following-sibling::span")).toBeVisible()
        }
        async coun_phonecode_req1(){
-        await expect(this.page.locator("//span[text()='Numbers only accepted based on the format +11']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Only Numbers accepted that are based on the format like +11']")).toBeVisible()
        }
        async coun_phoneformat_req1(){
-        await expect(this.page.locator("//span[text()='Numbers are only accepted']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Only Numbers are allowed']")).toBeVisible()
        }
 
 //////Lane Management    
@@ -193,13 +194,13 @@ export default class{
         await expect(this.page.locator("//span[text()='Country is required']")).toBeVisible()
        }    
        async lane_portname_val(){
-        await expect(this.page.locator("//span[text()='Port name is required']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Port Name is required']")).toBeVisible()
        } 
        async lane_portcode_val(){
-        await expect(this.page.locator("//span[text()='Enter valid portcode']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Port Code is required']")).toBeVisible()
        }
        async lane_portname_val1(){
-        await expect(this.page.locator("//span[text()='Enter only alphabets']")).toBeVisible()
+        await expect(this.page.locator("//span[text()='Only Alphabets are allowed']")).toBeVisible()
        }
        async lane_portcode_val1(){
         await expect(this.page.locator("(//span[text()='Enter only alphabets'])[2]")).toBeVisible()
@@ -207,6 +208,9 @@ export default class{
        async lane_gatefee_val(){
         await expect(this.page.locator("//span[text()='Enter Valid Gateway Fee']")).toBeVisible()
        }
+       async lane_gatewaycode_val(){
+              await expect(this.page.locator("//span[text()='Gateway Code is required']")).toBeVisible()
+             }
        async lane_portname(rum:string){
               await this.page.locator("//input[@name='portName']").fill(rum)
        }
@@ -263,16 +267,16 @@ export default class{
        await expect(this.page.locator("//p[text()='SAC Code is required']")).toBeVisible()
        }
        async costheading_sac_val1(){
-       await expect(this.page.locator("//p[text()='Only numbers can enter']")).toBeVisible()
+       await expect(this.page.locator("//p[text()='Only numbers are allowed']")).toBeVisible()
        }
        async costheading_ch_val(){
        await expect(this.page.locator("//p[text()='Cost Heading is required']")).toBeVisible()
        }
        async costheading_ch_val1(){
-       await expect(this.page.locator("//p[text()='Enter only alphabets']")).toBeVisible()
+       await expect(this.page.locator("//p[text()='Only alphabets are allowed']")).toBeVisible()
        }
        async costheading_countries_val(){
-       await expect(this.page.locator("//p[text()='Choose atleast one country']")).toBeVisible()
+       await expect(this.page.locator("//p[text()='Choose atleast one Country']")).toBeVisible()
        }
        async costheading_sac(sac:string){
        await this.page.locator("//input[@name='sacCode']").fill(sac)
@@ -284,13 +288,16 @@ export default class{
        await this.page.locator("//div[@id='applicableCountries']").click()
        }
        async costheading_countries_dum(){
-       await this.page.locator("//span[text()='dummycountryfortesting']").click()
+       await this.page.locator("//span[text()='united arab emirates']").click()
        }
        async costheading_countries_dum1(){
               await this.page.locator("//span[text()='sample country for testing']").click()
        }
        async click_out(){
               await this.page.locator("//div[contains(@class,'MuiBackdrop-root MuiBackdrop-invisible')]").click()
+       }
+       async Addedcostheading_toast(){ 
+              await expect(this.page.locator("//div[text()='Cost Heading Added Successfully']")).toBeVisible()
        }
        async costheading_error(){
               await expect(this.page.locator("//div[text()=' Cost Heading Already Exists']")).toBeVisible()
@@ -316,40 +323,43 @@ export default class{
        await this.page.locator("//button[text()='Save CFS']").click()
        }
        async cfs_country_val(){
-       await expect(this.page.locator("//span[text()='Country Name is Required']")).toBeVisible()       
+       await expect(this.page.locator("//span[text()='Country Name is required']")).toBeVisible()       
        }
        async cfs_type_val(){
-           await expect(this.page.locator("//span[text()='Type is Required']")).toBeVisible()       
+           await expect(this.page.locator("//span[text()='Type is required']")).toBeVisible()       
        }
        async cfs_gateway_val(){
-           await expect(this.page.locator("//span[text()='Gateway is Required']")).toBeVisible()       
+           await expect(this.page.locator("//span[text()='Gateway is required']")).toBeVisible()       
        }
+       async cfs_destination_val(){
+              await expect(this.page.locator("//span[text()='Destination is required']")).toBeVisible()       
+          }
        async cfs_cfsname_val(){
-       await expect(this.page.locator("//span[text()='CFS Name is Required']")).toBeVisible()       
+       await expect(this.page.locator("//span[text()='CFS Name is required']")).toBeVisible()       
        }
        async cfs_cfsbranch_val(){
-       await expect(this.page.locator("//span[text()='CFS Branch is Required']")).toBeVisible()       
+       await expect(this.page.locator("//span[text()='CFS Branch is required']")).toBeVisible()       
        }
        async cfs_fullname_val(){
-       await expect(this.page.locator("//span[text()='full Name is Required']")).toBeVisible()       
+       await expect(this.page.locator("//span[text()='Full Name is required']")).toBeVisible()       
        }
        async cfs_fullname_1_val(){
-       await expect(this.page.locator("//span[text()='Please enter valid Full name']")).toBeVisible()       
+       await expect(this.page.locator("//span[text()='Only alphabets are allowed']")).toBeVisible()       
        }
        async cfs_email_val(){
        await expect(this.page.locator("//span[text()='Email is required']")).toBeVisible()       
        }
        async cfs_email_1_val(){
-       await expect(this.page.locator("//span[text()='Enter Valid Email Address']")).toBeVisible()       
+       await expect(this.page.locator("//span[text()='Enter valid email address']")).toBeVisible()       
        }
        async cfs_address_val(){
-       await expect(this.page.locator("//span[text()='Address is Required']")).toBeVisible()
+       await expect(this.page.locator("//span[text()='Address is required']")).toBeVisible()
        }
        async cfs_phonecode_val(){
-       await expect(this.page.locator("//span[text()='Enter only valid number']")).toBeVisible()
+       await expect(this.page.locator("(//span[text()='Only numbers are allowed'])[1]")).toBeVisible()
        }
        async cfs_phonecode_1_val(){
-       await expect(this.page.locator("//span[text()='Mobile Number format is not correct']")).toBeVisible()
+       await expect(this.page.locator("//span[text()='Only numbers are allowed']")).toBeVisible()
        }
        async cfs_countryname(s:string){
               const sec = await this.page.locator("//select[@name='countryName']")
@@ -361,6 +371,10 @@ export default class{
        }
        async cfs_gateway(s:string){
               const sec = await this.page.locator("//select[@name='gateway']")
+              await sec.selectOption(s)
+       }
+       async cfs_destination(s:string){
+              const sec = await this.page.locator("//select[@name='destination']")
               await sec.selectOption(s)
        }
        async cfs_fullname(s:string){
@@ -382,14 +396,21 @@ export default class{
               await this.page.locator("//input[@name='cfsBranch']").fill(s)
        }
        async cfs_duplicatemailval(){
-              await expect(this.page.locator("//span[text()='This Email already exists']")).toBeVisible()
+              await expect(this.page.locator("//span[text()='This email already exists']")).toBeVisible()
        }
        async cfs_offemailval(){
-              await expect(this.page.locator("//span[text()='Enter Valid Email Address']")).toBeVisible()
+              await expect(this.page.locator("//span[text()='Enter your official email']")).toBeVisible()
        }
 
 ////////////////schedule
 
+      //div[text()='Updated successfully']
+       async edi_sch_toast(){
+              await expect(this.page.locator("//div[text()='Updated successfully']")).toBeVisible()
+       }
+       async add_sch_toast(){
+              await expect(this.page.locator("//div[text()='Schedule Added Successfully']")).toBeVisible()
+       }
        async schedule(){
               await this.page.locator("//a[contains(text(),'Schedule')]").click()  
        }
@@ -420,6 +441,9 @@ export default class{
        async schedule_voyage(sch:string){
               await this.page.locator("//input[@name='voyage']").fill(sch)  
        }
+       async schedule_service(sch:string){
+              await this.page.locator("//input[@name='serviceName']").fill(sch)  
+       }
        async sch_oricfsname(s:string){
               const sec = await this.page.locator("//select[@name='originCfsName']")
               await sec.selectOption(s)
@@ -442,76 +466,38 @@ export default class{
        async add_schedule(){
               await this.page.locator("//button[text()='Add Schedule']").click()  
        }
-       async ETD(){
+       async datepicker(){
               await this.page.locator("(//button[@aria-label='Choose date'])[1]").click()
        }
-       async Bookcut(){
-              await this.page.locator("(//button[@aria-label='Choose date'])[2]").click()
-       }
-       async origincfs(){
-              await this.page.locator("(//button[@aria-label='Choose date'])[3]").click()
-       }
-       async ETA(){
-              await this.page.locator("(//button[@aria-label='Choose date'])[4]").click()
-       }
-       async destinationcfs(){
-              await this.page.locator("(//button[@aria-label='Choose date'])[5]").click()
-       }
        async ETD_date(){
-              await this.page.locator("//button[@data-timestamp='1684866600000']").click()
+              await this.page.locator("//button[text()='24']").click()
        }
-       async Bookcut_date(){
-              await this.page.locator("//button[@data-timestamp='1684693800000']").click()
+       async book_date(){
+              await this.page.locator("//button[text()='19']").click()
        }
-       async origincfs_date(){
-              await this.page.locator("//button[@data-timestamp='1684521000000']").click()
+       async ocfs_date(){
+              await this.page.locator("//button[text()='17']").click()
        }
        async ETA_date(){
-              await this.page.locator("//button[@data-timestamp='1686249000000']").click()
+              await this.page.locator("//button[text()='30']").click()
        }
-       async destinationcfs_date(){
-              await this.page.locator("//button[@data-timestamp='1686594600000']").click()
-       }
-       async previousmonth_date(){
-              await this.page.locator("//button[@title='Previous month']").click()
+       async dcfs_date(){
+              await this.page.locator("//button[text()='31']").click()
        }
        async nextmonth_date(){
               await this.page.locator("//button[@title='Next month']").click()
        }
-//span[text()='POL is required']
-//span[text()='POD is required']
-//span[text()='Container type is required']
-//span[text()='Volume is required']
-//span[text()='Weight is required']
-//span[text()='Voyage is required']
-//span[text()='Voyage is required']
-//span[text()='ETD is required']
-//span[text()='Booking CutOff Date is required']
-//span[text()='Origin CFS CutOff Date is required']
-//span[text()='ETA is required']
-//span[text()='Destination CFS CutOff Date is required']
-//span[text()='Origin CFS Name is required']
-//span[text()='Origin CFS Branch is required']
-//span[text()='Origin CFS Closing Time is required']
-//span[text()='Destination CFS Name is required']
-//span[text()='Destination CFS Branch is required']
-//span[text()='Destination Available Time is required']
-
-       async ct1(){
-              await this.page.locator("(//input[@placeholder='hh:mm'])[1]").click()
+       async ct(){
+              await this.page.locator("(//input[@aria-label='Choose time'])[1]").click()
        }
-       async ct1_select(){
-              await this.page.locator("span[aria-label='11 hours']").click()
+       async ct_select(){
+              await this.page.locator("//div[@class='MuiClock-squareMask css-1umqo6f']").click()
        }
        async ct_ok(){
               await this.page.locator("//button[text()='OK']").click()
        }
-       async ct2_select(){
-              await this.page.locator("span[aria-label='55 minutes']").click()
-       }
-       async ct2(){
-              await this.page.locator("(//input[@placeholder='hh:mm'])[2]").click()
-       }
+
+       
 
 //////////////// Rates
 
@@ -620,14 +606,17 @@ export default class{
        async holiday_add(){
               await this.page.locator("//button[text()='Add Holiday']").click()
        }
-       async holiday_upload(){
-              await this.page.locator("//button[text()='Upload Xls/Xlsx']").click()
+       async holiday_upload(s:string){
+              await this.page.locator("//input[@type='file']").setInputFiles(s)
        }
        async holiday_submit(){
               await this.page.locator("//button[text()='Submit']").click()
        }
        async holiday_save(){
               await this.page.locator("//button[text()='Save Holiday']").click()
+       }
+       async holiday_update(){
+              await this.page.locator("//button[text()='Update Holiday']").click()
        }
        async holiday_validationmsg(){
               await expect(this.page.locator("//span[text()='Port code is required']")).toBeVisible()
@@ -638,7 +627,7 @@ export default class{
               await expect(this.page.locator("//span[text()='Holiday name is required']")).toBeVisible()
        }
        async holiday_name_validationmsg(){
-              await expect(this.page.locator("//span[text()='Enter only alphabets']")).toBeVisible()
+              await expect(this.page.locator("//span[text()='Only alphabets are allowed']")).toBeVisible()
        }
        async holiday_yes(){
               await this.page.locator("//button[text()='Yes']").click()
@@ -647,7 +636,7 @@ export default class{
               await this.page.locator("//a[contains(text(),'Sample-Excel')]").click()
        }
        async holiday_search(s:string){
-              await this.page.locator("//input[@placeholder='Search Holiday Name']").fill(s)
+              await this.page.locator("//input[@placeholder='Search Holiday Name , Port Code ']").fill(s)
        }
        async holiday_portcode(s:string){
              const port = await this.page.locator("//select[@name='portCode']")
@@ -660,21 +649,41 @@ export default class{
               await this.page.locator("//button[@aria-label='Choose date']").click()
        }
        async holiday_date_choose(){
-              await this.page.locator("//button[text()='15']").click()
+              await this.page.locator("//button[text()='24']").click()
+       }
+       async holiday_date_choose1(){
+              await this.page.locator("//button[text()='27']").click()
        }
        async asser_holiday(){
               await expect(this.page.locator("div[data-colindex='1']")).toBeVisible()
        }
+       async add_holiday_toast(){
+              await expect(this.page.locator("//div[text()='Holiday Added Successfully']")).toBeVisible()
+       }
+       async edit_holiday_toast(){
+              await expect(this.page.locator("//div[text()='Updated successfully']")).toBeVisible()
+       }
+       async file_upload_toast(){
+              await expect(this.page.locator("//div[text()='File Uploaded']")).toBeVisible()
+       }
+       async submit_button_file(){
+              await this.page.click("//button[text()='Submit']")
+       }
+       async invalidportcode_toast(){
+              await expect(this.page.locator("//div[text()='Invalid Port code']")).toBeVisible()
+       }
+       async invaliddate_toast(){
+              await expect(this.page.locator("//div[text()='Holiday Dates must be Today or Future Dates']")).toBeVisible()
+       }
+       async invalidholidayname_toast(){
+              await expect(this.page.locator("//div[text()='Invalid Holiday name']")).toBeVisible()
+       }
+       async otherdoc_toast(){
+              await expect(this.page.locator("//div[text()='Upload Only xls & xlsx file']")).toBeVisible()
+       }
 
 
 
-
-
-
-//input[@format='dd-mm-yyyy']
-
-
-//button[text()='Add Holiday']
 
 //////////////////// Dashboard
 
@@ -1196,7 +1205,7 @@ export default class{
        await this.page.locator("//input[@id='fullName']").fill(s)
      }
      async assert_fullname(){
-       await expect(this.page.locator("//input[@id='fullName']")).toHaveText("sanjay")
+       await expect(this.page.locator("//input[@id='fullName']")).toHaveText("sanjai")
      }
      async edit_mobile(s:string){
        await this.page.locator("//input[@id='Mobile']").fill(s)
@@ -1209,10 +1218,10 @@ export default class{
        await this.page.locator("//p[text()='Full Name is required']").click()
      }
      async phone_val(){
-       await this.page.locator("//p[text()='Phone Number is required']").click()
+       await this.page.locator("//p[text()='Mobile Number is required']").click()
      }
      async full_name_val1(){
-       await this.page.locator("//p[text()='Only Alphabets are allowed']").click()
+       await this.page.locator("//p[text()='Only alphabets are allowed']").click()
      }
      async phone_val1(){
        await this.page.locator("//p[text()='Enter Valid Phone Number']").click()
@@ -1245,7 +1254,7 @@ async fflogin_mile (){
        }
 
        await this.page.click("//a[text()='My Bookings']")
-       await this.page.locator("//input[@placeholder='Search Bookings']").fill("AMBQA-102-23-0070")   // will change 
+       await this.page.locator("//input[@placeholder='Search Bookings']").fill("AMBQA-102-23-0073")   // will change 
        await this.page.locator("(//button[text()='View Details '])[1]").click()     // will change
 
 
@@ -1276,7 +1285,7 @@ async fflogin_mile (){
        await this.page.locator("//input[@placeholder='Search Company Name']").type("sanjai pvt ltd")   // will change
 
        await this.page.click("//button[text()='Booked']")
-       await this.page.click("(//button[text()='View Info'])[8]")   //will change
+       await this.page.click("(//button[text()='View Info'])[5]")   //will change
     
 }
 async oripartner_mile(){
@@ -1298,7 +1307,7 @@ async oripartner_mile(){
         console.log('Pop-up is not visible by partner.');
        }
        await this.page.click("(//button[text()='View'])[8]")                   // will change
-       await this.page.click("(//button[text()='View Info'])[10]")              // will change
+       await this.page.click("(//button[text()='View Info'])[5]")              // will change
 }
 async destpartner_mile(){
        const type = await this.page.locator("//select[@type='number']")
@@ -1319,7 +1328,7 @@ async destpartner_mile(){
         console.log('Pop-up is not visible.');
        }
        await this.page.click("(//button[text()='View'])[8]")                      // will change
-       await this.page.click("(//button[text()='View Info'])[8]")                 // will change
+       await this.page.click("(//button[text()='View Info'])[5]")                 // will change
 }
      
      
@@ -1330,24 +1339,30 @@ async destpartner_mile(){
        await this.page.click("._fileContainer_boizn_39 > svg")
        await this.page.locator("//input[@id='file']").setInputFiles("data-files/Gst.pdf")
        await this.page.click("._fileContainer_boizn_39 > svg")
-       await this.page.locator("//input[@id='file']").setInputFiles("data-files/5mbb.pdf")
+
+       await this.page.locator("//input[@id='file']").setInputFiles("data-files/fivemb.pdf")
+       await this.page.waitForTimeout(3000)
        await this.page.click("._fileContainer_boizn_39 > svg")
        //10 mb
-       await this.page.locator("//input[@id='file']").setInputFiles("data-files/10 mb file.pdf")
+       await this.page.locator("//input[@id='file']").setInputFiles("data-files/tenmb.pdf")
+       await this.page.waitForTimeout(3000)
        await expect(this.page.locator("//p[text()='File size should not be more than 5 MB']")).toBeVisible()
-       await this.page.click("._fileContainer_boizn_39 > svg")
+       
        // xls file
-       await this.page.locator("//input[@id='file']").setInputFiles("data-files/destination (2).xls")
-       await expect(this.page.locator("//p[text()='File size should not be more than 5 MB']")).toBeVisible()
-       await this.page.click("._fileContainer_boizn_39 > svg")
+       await this.page.locator("//input[@id='file']").setInputFiles("data-files/destination.xls")
+       await this.page.waitForTimeout(3000)
+       await expect(this.page.locator("//p[text()='Upload only PDF']")).toBeVisible()
+       
        // word file
        await this.page.locator("//input[@id='file']").setInputFiles("data-files/Works.docx")
-       await expect(this.page.locator("//p[text()='File size should not be more than 5 MB']")).toBeVisible()
-       await this.page.click("._fileContainer_boizn_39 > svg")
+       await this.page.waitForTimeout(3000)
+       await expect(this.page.locator("//p[text()='Upload only PDF']")).toBeVisible()
+       
        // image
        await this.page.locator("//input[@id='file']").setInputFiles("data-files/sample.png")
-       await expect(this.page.locator("//p[text()='File size should not be more than 5 MB']")).toBeVisible()
-       await this.page.click("._fileContainer_boizn_39 > svg")
+       await this.page.waitForTimeout(3000)
+       await expect(this.page.locator("//p[text()='Upload only PDF']")).toBeVisible()
+       
 
 }
 

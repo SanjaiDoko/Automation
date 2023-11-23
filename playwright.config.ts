@@ -7,7 +7,7 @@ const config: PlaywrightTestConfig = {
   use: {
     headless:false,
 //baseURL:"http://dev.cn.dokonaly.com/",
-baseURL:"http://qa.ams.ai/",
+baseURL:"http://qa.ams.ai/rdt/rate/add",
 video : "on",
 screenshot : "off"
 // trace:"on"

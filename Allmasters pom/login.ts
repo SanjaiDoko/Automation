@@ -127,7 +127,7 @@ import {Page, expect} from "@playwright/test";
         await this.page.locator("//button[text()='Yes']").click()
     }
     async reg_no(){
-        await this.page.locator("//button[text()='No']").click()
+        await this.page.locator("   ").click()
     }
     async terms_condition_clk(){
         const term = await this.page.locator("//input[@name='termsconditions']")
